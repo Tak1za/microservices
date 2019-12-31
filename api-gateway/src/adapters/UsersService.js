@@ -12,6 +12,20 @@ export default class UserService {
         }
       })
       .json();
+      
+    return body;
+  }
+
+  static async createUserSession({ email, password }) {
+    const body = await got
+      .post(`${USERS_SERVICE_URI}/sessions`, {
+        json: {
+          email,
+          password
+        }
+      })
+      .json();
+
     return body;
   }
 }
