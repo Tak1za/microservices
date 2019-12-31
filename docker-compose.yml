@@ -10,6 +10,15 @@ services:
     volumes:
       - ./api-gateway:/opt/app
 
+  classifieds-app:
+    build: "./classifieds-app"
+    depends_on:
+      - api-gateway
+    ports:
+      - 7001:7001
+    volumes:
+      - ./classifieds-app:/opt/app
+
   listings-service:
     build: "./listings-service"
     depends_on:
